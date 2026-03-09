@@ -21,8 +21,16 @@ jobs:
 
       - name: Build with Buildozer
         run: |
+          set -o pipefail
           buildozer android debug 2>&1 | tee build_logs.txt
         id: buildozer
+
+      - name: Debug: List files
+        if: always()
+        run: |
+          echo "Checking for APK files..."
+          find . -name "*.apk"
+          ls -R bin/ || echo "bin/ directory not found"
 
       - name: Upload Logs on Failure
         if: failure()
@@ -35,4 +43,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: package
-          path: bin/*.apk
+          path: |
+            bin/*.apk
+            .buildozer/android/platform/build-*/build/outputs/apk/**/*.apk
