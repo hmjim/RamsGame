@@ -25,7 +25,7 @@ jobs:
           buildozer android debug 2>&1 | tee build_logs.txt
         id: buildozer
 
-      - name: Debug: List files
+      - name: "Debug: List files"
         if: always()
         run: |
           echo "Checking for APK files..."
