@@ -1,0 +1,12 @@
+# .gitignore
+.buildozer/
+bin/
+*.pyc
+__pycache__/
+.DS_Store
+*.spec.txt
+*.py.txt
+.idea/
+.vscode/
+venv/
+env/
