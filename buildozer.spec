@@ -9,6 +9,11 @@ package.name = rams_online
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.ramsgame
 
+# (bool) If True, then automatically accept SDK license
+# agreements. This is intended for automation only. If set to False,
+# the default, you will be shown the license when installing dists.
+android.accept_sdk_license = True
+
 # (str) Source code where the main.py live
 source.dir = .
 
