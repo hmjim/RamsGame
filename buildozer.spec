@@ -43,6 +43,21 @@ android.archs = arm64-v8a, armeabi-v7a
 # (bool) enables Android auto backup feature (Android API >= 23)
 android.allow_backup = True
 
+# (int) Android API to use
+android.api = 33
+
+# (int) Minimum API your APK will support.
+android.minapi = 21
+
+# (str) Android NDK version to use
+android.ndk = 25b
+
+# (str) Android SDK directory (if empty, it will be automatically downloaded.)
+# android.sdk_path = 
+
+# (str) Android NDK directory (if empty, it will be automatically downloaded.)
+# android.ndk_path = 
+
 [buildozer]
 
 # (int) Log level (0 = error only, 1 = info, 2 = debug (with command output))
