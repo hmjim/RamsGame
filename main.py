@@ -3,7 +3,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 import socketio
 
-sio = socketio.Client()
+# sio = socketio.Client() # Move this inside the app class to prevent early initialization crashes
 
 Builder.load_string('''
 <MenuScreen>:
@@ -63,11 +63,17 @@ class LeaderboardScreen(Screen):
 
 class RamsApp(App):
     def build(self):
-        sm = ScreenManager()
-        sm.add_widget(MenuScreen(name='menu'))
-        sm.add_widget(GameScreen(name='game'))
-        sm.add_widget(LeaderboardScreen(name='leaderboard'))
-        return sm
+        try:
+            self.sio = socketio.Client()
+            sm = ScreenManager()
+            sm.add_widget(MenuScreen(name='menu'))
+            sm.add_widget(GameScreen(name='game'))
+            sm.add_widget(LeaderboardScreen(name='leaderboard'))
+            return sm
+        except Exception as e:
+            # Simple error printing - can be seen in adb logcat
+            print(f"CRITICAL ERROR DURING INITIALIZATION: {e}")
+            raise e
 
 
 if __name__ == '__main__':

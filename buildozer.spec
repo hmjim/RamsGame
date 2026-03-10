@@ -25,7 +25,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = python3,kivy,python-socketio,websocket-client,requests,urllib3
-requirements = python3,kivy,python-socketio,websocket-client,requests,urllib3
+requirements = python3,kivy==2.3.0,python-socketio,python-engineio,bidict,websocket-client,requests,urllib3
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
@@ -38,7 +38,7 @@ orientation = portrait
 android.permissions = INTERNET, ACCESS_NETWORK_STATE
 
 # (list) Android architectures to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
-android.archs = arm64-v8a
+android.archs = arm64-v8a, armeabi-v7a
 
 # (bool) enables Android auto backup feature (Android API >= 23)
 android.allow_backup = True
